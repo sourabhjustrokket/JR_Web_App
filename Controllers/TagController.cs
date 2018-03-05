@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using JR_Web_App.Helper;
+using JR_Web_App.Models;
 
 namespace JR_Web_App.Controllers
 {
@@ -72,13 +73,24 @@ namespace JR_Web_App.Controllers
         [HttpPost]
         [Route("Admin/Tag/Create")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create(Tag tag)
         {
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
+                HttpClient client = new HttpClient();
+                string callingUrl = APIHelper.BaseUrl + "/Tags";
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Request.Cookies["token"].ToString());
+                HttpResponseMessage response = await client.PostAsJsonAsync(callingUrl, tag);
+                if (response.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("index", "tag");
+                }
+                else
+                {
+                    ViewBag.Message = "Invalid Credentials";
+                    return View();
+                }
             }
             catch
             {
