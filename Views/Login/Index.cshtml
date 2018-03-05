@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<form method="post">
+    <input type="text" name="email" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+    <p class="">@ViewBag.Message</p>
+</form>
