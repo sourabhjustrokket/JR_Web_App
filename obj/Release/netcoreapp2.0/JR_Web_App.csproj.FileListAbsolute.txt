@@ -1,0 +1,11 @@
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\bin\Release\netcoreapp2.0\JR_Web_App.deps.json
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\bin\Release\netcoreapp2.0\JR_Web_App.runtimeconfig.json
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\bin\Release\netcoreapp2.0\JR_Web_App.runtimeconfig.dev.json
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\bin\Release\netcoreapp2.0\JR_Web_App.dll
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\bin\Release\netcoreapp2.0\JR_Web_App.pdb
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\obj\Release\netcoreapp2.0\JR_Web_App.csprojResolveAssemblyReference.cache
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\obj\Release\netcoreapp2.0\JR_Web_App.csproj.CoreCompileInputs.cache
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\obj\Release\netcoreapp2.0\JR_Web_App.AssemblyInfoInputs.cache
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\obj\Release\netcoreapp2.0\JR_Web_App.AssemblyInfo.cs
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\obj\Release\netcoreapp2.0\JR_Web_App.dll
+C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\obj\Release\netcoreapp2.0\JR_Web_App.pdb

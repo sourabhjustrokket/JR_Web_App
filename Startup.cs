@@ -38,6 +38,7 @@ namespace JR_Web_App
             }
             else
             {
+                //app.UseDeveloperExceptionPage();
                 app.UseExceptionHandler("/Error");
             }
 
