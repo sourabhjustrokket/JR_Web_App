@@ -30,7 +30,7 @@ namespace JR_Web_App.Controllers
             {
                 var data = Newtonsoft.Json.JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result) as Newtonsoft.Json.Linq.JObject;
                 Response.Cookies.Append("token", data.GetValue("token").ToString(),new Microsoft.AspNetCore.Http.CookieOptions() {Expires=DateTime.Now.AddDays(7) });
-                return View("index","admin");
+                return RedirectToAction("index","admin");
             }
             else
             {
