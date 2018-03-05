@@ -37,7 +37,6 @@ namespace JR_Web_App.CustomMiddleware
                                 context.Session.SetString("user_type", data.GetValue("userType").ToString());
                                 context.Session.SetString("username", data.GetValue("username").ToString());
                                 context.Session.SetString("email", data.GetValue("email").ToString());
-                                //data.GetValue("").ToString();
                             }
                             catch (Exception ex)
                             {

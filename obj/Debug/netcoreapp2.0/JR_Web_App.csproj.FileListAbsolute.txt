@@ -8,4 +8,3 @@ c:\users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_A
 c:\users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\obj\Debug\netcoreapp2.0\JR_Web_App.AssemblyInfo.cs
 c:\users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\obj\Debug\netcoreapp2.0\JR_Web_App.dll
 c:\users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\obj\Debug\netcoreapp2.0\JR_Web_App.pdb
-c:\users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\obj\Debug\netcoreapp2.0\JR_Web_App.csprojResolveAssemblyReference.cache
