@@ -143,5 +143,29 @@ namespace JR_Web_App.Controllers
                 return View();
             }
         }
+        [Route("Admin/Tag/CreateTagRelations")]
+        public ActionResult CreateTagRelationship()
+        {
+            if (HttpContext.Session.GetString("user_type") != "A")
+            {
+                return RedirectToAction("index", "login");
+            }
+            HttpClient client = new HttpClient();
+            string callingUrl = APIHelper.BaseUrl + "/Tags";
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Request.Cookies["token"].ToString());
+            try
+            {
+                var response = client.GetAsync(callingUrl).Result;
+                var data = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Models.Tag>>(response.Content.ReadAsStringAsync().Result);
+                TagRelations tr = new TagRelations();
+                tr.FamilyTagMembers = data;
+                return View(tr);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return RedirectToAction("index", "home");
+        }
     }
 }
