@@ -172,7 +172,26 @@ namespace JR_Web_App.Controllers
         [Route("Admin/Tag/CreateTagRelations")]
         public ActionResult CreateTagRelationship(TagRelations tagRelations)
         {
-            return View();
+            if (HttpContext.Session.GetString("user_type") != "A")
+            {
+                return RedirectToAction("index", "login");
+            }
+            HttpClient client = new HttpClient();
+            string callingUrl = APIHelper.BaseUrl + "/TagRelatoinship";
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Request.Cookies["token"].ToString());
+            try
+            {
+                var response = client.PostAsJsonAsync(callingUrl,tagRelations).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    return Json("done");
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return Json("error");
         }
     }
 }

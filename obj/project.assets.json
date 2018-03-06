@@ -13152,11 +13152,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\sourabhsomani\\documents\\visual studio 2017\\Projects\\JR_Web_App\\JR_Web_App\\JR_Web_App.csproj",
+      "projectUniqueName": "C:\\Users\\sourabhsomani\\Documents\\Visual Studio 2017\\Projects\\JR_Web_App\\JR_Web_App\\JR_Web_App.csproj",
       "projectName": "JR_Web_App",
-      "projectPath": "C:\\Users\\sourabhsomani\\documents\\visual studio 2017\\Projects\\JR_Web_App\\JR_Web_App\\JR_Web_App.csproj",
+      "projectPath": "C:\\Users\\sourabhsomani\\Documents\\Visual Studio 2017\\Projects\\JR_Web_App\\JR_Web_App\\JR_Web_App.csproj",
       "packagesPath": "C:\\Users\\sourabhsomani\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sourabhsomani\\documents\\visual studio 2017\\Projects\\JR_Web_App\\JR_Web_App\\obj\\",
+      "outputPath": "C:\\Users\\sourabhsomani\\Documents\\Visual Studio 2017\\Projects\\JR_Web_App\\JR_Web_App\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

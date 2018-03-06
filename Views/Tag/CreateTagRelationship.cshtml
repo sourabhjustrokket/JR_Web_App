@@ -10,23 +10,23 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CreateTagRelationship">
+        <form asp-action="CreateTagRelationship" id="frmCreateTagRelationship">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="FamilyTag" class="control-label"></label>
                 <select id="FamilyTag" name="FamilyTag" class="form-control">
                     @foreach (var item in Model.FamilyTagMembers)
                     {
-                        <option id="@item.Id">@item.TagName</option>
+                        <option value="@item.Id" id="@item.Id">@item.TagName</option>
                     }
                 </select>
             </div>
             <div class="form-group">
                 <label asp-for="FamilyTagMembers" class="control-label"></label>
-                <select id="FamilyTag" multiple name="FamilyTag" class="form-control">
+                <select id="FamilyTagMembers" multiple name="FamilyTagMembers" class="form-control">
                     @foreach (var item in Model.FamilyTagMembers)
                     {
-                        <option id="@item.Id">@item.TagName</option>
+                        <option value="@item.Id" id="@item.Id">@item.TagName</option>
                     }
                 </select>
             </div>
@@ -40,4 +40,46 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+@section Scripts{ 
+    <script type="text/javascript">
+        var isBusy = false;
+        $(document).ready(function () { 
+            $("#frmCreateTagRelationship").submit(function (e) {
+                return createTagRelation();
+            })
+        })
+        function createTagRelation() {
+            if (isBusy) { return false }
+            familyTagMembers = []
+            $("#FamilyTagMembers option").each(function () {
+                (this.selected) && familyTagMembers.push({ "Id": $(this).val(), "TagName": $(this).html() });
+            });
+            if (!familyTagMembers.length) { alert("Please select tag family members"); return false; }
+            var tagRelationship={
+                "FamilyTag": {
+                    "Id": $("#FamilyTag").val(),
+                    "TagName": $("#FamilyTag option:selected").text(),
+                },
+                "FamilyTagMembers": familyTagMembers
+            }
+            $.ajax({
+                url: '/admin/tag/CreateTagRelations',
+                type: 'POST',
+                data: {tagRelations:tagRelationship},
+                beforeSend: function (xhr) {
+                    isBusy = true;
+                },
+                success: function (data) {
 
+                },
+                error: function (err) {
+                    console.log(err);
+                },
+                complete: function () {
+                    isBusy: false;
+                }
+            });
+            return false;
+        }
+    </script>
+}
