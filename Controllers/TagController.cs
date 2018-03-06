@@ -44,7 +44,7 @@ namespace JR_Web_App.Controllers
                 return RedirectToAction("index", "login");
             }
             HttpClient client = new HttpClient();
-            string callingUrl = APIHelper.BaseUrl + "/Tags/"+id;
+            string callingUrl = APIHelper.BaseUrl + "/Tags/" + id;
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", HttpContext.Request.Cookies["token"].ToString());
             try
             {
@@ -166,6 +166,13 @@ namespace JR_Web_App.Controllers
 
             }
             return RedirectToAction("index", "home");
+        }
+
+        [HttpPost]
+        [Route("Admin/Tag/CreateTagRelations")]
+        public ActionResult CreateTagRelationship(TagRelations tagRelations)
+        {
+            return View();
         }
     }
 }
