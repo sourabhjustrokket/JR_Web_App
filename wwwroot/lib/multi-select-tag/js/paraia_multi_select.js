@@ -61,7 +61,10 @@ function deselectAll(id) {
                 defaults: [],
                 filter_text: 'Filter',
                 rtl: false,
-                case_sensitive: false
+                case_sensitive: false,
+                showMultiSelectIcon: true,
+                showMultiDeSelectIcon: true,
+                maxSelect:-1,
             }, options);
 
             input = $(this);
@@ -73,8 +76,8 @@ function deselectAll(id) {
                 select = $('<div class="paraia-multi-select rtl" id="paraia-multi-select-' + selectId + '">' +
                     '<div class="selected-items form-control">' +
                     '<span class="placeholder">' + input.attr('placeholder') + '</span>' +
-                    '<button type="button" onclick="selectAll(' + selectId + ', ' + settings.multi_select + ')"></button>' +
-                    '<button type="button" onclick="deselectAll(' + selectId + ')"></button>' +
+                    '<button type="button" onclick="selectAll(' + selectId + ', ' + settings.multi_select + ')" class=' + (settings.showMultiSelectIcon ? '' : 'd-none') + '></button>' +
+                    '<button type="button" onclick="deselectAll(' + selectId + ')" class=' + (settings.showMultiDeSelectIcon ? '' : 'd-none') + '></button>' +
                     '</div>' +
                     '<div class="dropdown form-control">' +
                     '<div class="filter">' +
@@ -88,8 +91,8 @@ function deselectAll(id) {
                 select = $('<div class="paraia-multi-select" id="paraia-multi-select-' + selectId + '">' +
                     '<div class="selected-items form-control">' +
                     '<span class="placeholder">' + input.attr('placeholder') + '</span>' +
-                    '<button type="button" onclick="selectAll(' + selectId + ', ' + settings.multi_select + ')"></button>' +
-                    '<button type="button" onclick="deselectAll(' + selectId + ')"></button>' +
+                    '<button type="button" onclick="selectAll(' + selectId + ', ' + settings.multi_select + ')"  class=' + (settings.showMultiSelectIcon ? '' : 'd-none') +'  ></button>' +
+                    '<button type="button" onclick="deselectAll(' + selectId + ')" class=' + (settings.showMultiDeSelectIcon ? '' : 'd-none') +'></button>' +
                     '</div>' +
                     '<div class="dropdown form-control">' +
                     '<div class="filter">' +
@@ -191,13 +194,25 @@ function deselectAll(id) {
                         select.find('.selected-items > .item').remove();
                     }
                     // Check item
-                    inputElem.prop('checked', true);
-
-                    select.find('.selected-items').append(
-                        '<span class="item" data-val="' + inputElem.attr('id') + '">' + item.find('label').html() +
-                        '<button type="button" onclick="removeItem($(this).parent().attr(\'data-val\'));">&times;</button>' +
-                        '</span>'
-                    );
+                    if (settings.maxSelect == -1) {
+                        inputElem.prop('checked', true);
+                        select.find('.selected-items').append(
+                            '<span class="item" data-val="' + inputElem.attr('id') + '">' + item.find('label').html() +
+                            '<button type="button" onclick="removeItem($(this).parent().attr(\'data-val\'));">&times;</button>' +
+                            '</span>'
+                        );
+                    }
+                    else if (select.find('.selected-items > .item').length!=settings.maxSelect) {
+                        inputElem.prop('checked', true);
+                        select.find('.selected-items').append(
+                            '<span class="item" data-val="' + inputElem.attr('id') + '">' + item.find('label').html() +
+                            '<button type="button" onclick="removeItem($(this).parent().attr(\'data-val\'));">&times;</button>' +
+                            '</span>'
+                        );
+                    }
+                    else {
+                        alert("You can only select " + settings.maxSelect + " Tags");
+                    }
                 }
             });
 
@@ -215,7 +230,8 @@ function deselectAll(id) {
                 if (settings.case_sensitive) {
                     dropDown.find('.item').each(function () {
                         var item = $(this);
-                        if (item.html().includes(text)) {
+                        //if (item.html().includes(text)) {
+                        if (item.text().startsWith(text)) {
                             item.show();
                         } else {
                             item.hide();
@@ -224,7 +240,8 @@ function deselectAll(id) {
                 } else {
                     dropDown.find('.item').each(function () {
                         var item = $(this);
-                        if (item.html().toLowerCase().includes(text.toLowerCase())) {
+                        //if (item.html().toLowerCase().includes(text.toLowerCase())) {
+                        if (item.text().toLowerCase().startsWith(text.toLowerCase())) {
                             item.show();
                         } else {
                             item.hide();

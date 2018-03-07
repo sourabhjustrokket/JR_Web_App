@@ -5,6 +5,12 @@
 }
 @section Styles{ 
     <link href="~/lib/multi-select-tag/css/paraia_multi_select.min.css" rel="stylesheet" />
+    <style>
+        .paraia-multi-select > .selected-items > button:nth-child(3) {
+            left:auto;
+            right:0;
+        }
+    </style>
 }
 <h2>Ask Question</h2>
 <hr />
@@ -24,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="tags" class="control-label"></label>
-                <input asp-for="tags" data-paraia-multi-select="true" />
+                <input asp-for="tags" class="form-control" placeholder="Select Tags" data-paraia-multi-select="true" />
                 <span asp-validation-for="tags" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -34,7 +40,8 @@
     </div>
 </div>
 @section Scripts{
-    <script src="~/lib/multi-select-tag/js/paraia_multi_select.min.js"></script>
+    @*<script src="~/lib/multi-select-tag/js/paraia_multi_select.min.js"></script>*@
+    <script src="~/lib/multi-select-tag/js/paraia_multi_select.js"></script>
     <script>
         // You'd better put the code inside ready() function
         $(document).ready(function () {
@@ -56,8 +63,11 @@
             var select = $('[data-paraia-multi-select="true"]').paraia_multi_select({
                 multi_select: true,
                 items: items,
+                showMultiSelectIcon: false,
+                showMultiDeSelectIcon: true,
+                maxSelect: 2,
                 //defaults: [11, 12, 13],
-                rtl: true
+                //rtl: false
             });
 
             // Get selected items
