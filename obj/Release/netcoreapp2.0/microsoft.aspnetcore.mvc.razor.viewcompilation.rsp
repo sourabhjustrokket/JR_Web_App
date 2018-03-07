@@ -2,10 +2,15 @@ C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_A
 --output-path=obj\Release\netcoreapp2.0\
 --application-name=JR_Web_App
 --content-root=C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App
+--file=C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\Views\Admin\Index.cshtml
 --file=C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\Views\Home\Index.cshtml
 --file=C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\Views\Login\Index.cshtml
+--file=C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\Views\ManageUser\Index.cshtml
+--file=C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\Views\Question\Index.cshtml
+--file=C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\Views\Registration\Index.cshtml
 --file=C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\Views\Shared\_Layout.cshtml
 --file=C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\Views\Tag\Create.cshtml
+--file=C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\Views\Tag\CreateTagRelationship.cshtml
 --file=C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\Views\Tag\Details.cshtml
 --file=C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\Views\Tag\Index.cshtml
 --file=C:\Users\sourabhsomani\documents\visual studio 2017\Projects\JR_Web_App\JR_Web_App\Views\_ViewImports.cshtml
