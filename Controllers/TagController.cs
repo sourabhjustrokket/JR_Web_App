@@ -193,5 +193,15 @@ namespace JR_Web_App.Controllers
             }
             return Json("error");
         }
+        [HttpGet]
+        [Route("Tag/GetSecondaryTags")]
+        public ActionResult GetSecondaryTags(string search="")
+        {
+            HttpClient client = new HttpClient();
+            string callingUrl = APIHelper.BaseUrl + "/Tags/SearchSecondaryTag?searchTag="+search;
+            var response = client.GetAsync(callingUrl).Result;
+            var data = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Models.Tag>>(response.Content.ReadAsStringAsync().Result);
+            return Ok(data);
+        }
     }
 }

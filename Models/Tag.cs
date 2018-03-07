@@ -12,5 +12,6 @@ namespace JR_Web_App.Models
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
         public bool IsActive { get; set; }
+        public string TagSymbol { get; set; }
     }
 }
