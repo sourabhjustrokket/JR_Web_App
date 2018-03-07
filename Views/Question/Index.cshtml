@@ -1,0 +1,70 @@
+﻿@model JR_Web_App.Models.Question
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section Styles{ 
+    <link href="~/lib/multi-select-tag/css/paraia_multi_select.min.css" rel="stylesheet" />
+}
+<h2>Ask Question</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Detail" class="control-label"></label>
+                <input asp-for="Detail" class="form-control" />
+                <span asp-validation-for="Detail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tags" class="control-label"></label>
+                <input asp-for="tags" data-paraia-multi-select="true" />
+                <span asp-validation-for="tags" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ask" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/lib/multi-select-tag/js/paraia_multi_select.min.js"></script>
+    <script>
+        // You'd better put the code inside ready() function
+        $(document).ready(function () {
+            // Items to select
+            var items = [
+                { value: 1, text: '#MBA' },
+                { value: 2, text: '#BTECH' },
+                { value: 3, text: '#PGDM' },
+                { value: 4, text: '#BBM' },
+                { value: 5, text: '#BBA' },
+                { value: 6, text: '#BCA' },
+                { value: 7, text: '#MCA' },
+                { value: 8, text: '#ComputerScience' },
+                { value: 9, text: '#IT' },
+                { value: 10, text: '#JobsAfterBTech' }
+            ];
+
+            // Initialize paraia-multi-select
+            var select = $('[data-paraia-multi-select="true"]').paraia_multi_select({
+                multi_select: true,
+                items: items,
+                //defaults: [11, 12, 13],
+                rtl: true
+            });
+
+            // Get selected items
+            $('#show_selected').click(function () {
+                alert(select.paraia_multi_select('get_items'))
+            });
+        });
+    </script>
+}
+
