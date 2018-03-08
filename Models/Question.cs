@@ -13,6 +13,7 @@ namespace JR_Web_App.Models
         public string Detail { get; set; }
         public bool IsActive { get; set; }
         public bool IsApproved { get; set; }
+        public string tagIds { get; set; }
         public List<Tag> tags { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }

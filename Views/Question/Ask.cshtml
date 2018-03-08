@@ -3,12 +3,12 @@
 @{
     ViewData["Title"] = "Index";
 }
-@section Styles{ 
+@section Styles{
     <link href="~/lib/multi-select-tag/css/paraia_multi_select.min.css" rel="stylesheet" />
     <style>
         .paraia-multi-select > .selected-items > button:nth-child(3) {
-            left:auto;
-            right:0;
+            left: auto;
+            right: 0;
         }
     </style>
 }
@@ -16,7 +16,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Index">
+        <form asp-action="ask">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
@@ -33,8 +33,9 @@
                 <input asp-for="tags" class="form-control" placeholder="Select Tags" data-paraia-multi-select="true" />
                 <span asp-validation-for="tags" class="text-danger"></span>
             </div>
+            <input type="hidden" id="tagIds" name="tagIds" />
             <div class="form-group">
-                <input type="submit" value="Ask" class="btn btn-default" />
+                <input type="submit" value="Ask Your Question" id="AskQuestion" class="btn btn-default" />
             </div>
         </form>
     </div>
@@ -51,7 +52,7 @@
                 url: '/Tag/GetSecondaryTags',
                 success: function (data) {
                     $(data).each(function () {
-                        items.push({ value: this.tagName, text: this.tagName })
+                        items.push({ value: this.id, text: this.tagName })
                     })
                     var select = $('[data-paraia-multi-select="true"]').paraia_multi_select({
                         multi_select: true,
@@ -64,12 +65,14 @@
                     });
 
                     // Get selected items
-                    $('#show_selected').click(function () {
-                        alert(select.paraia_multi_select('get_items'))
+                    $('#AskQuestion').click(function () {
+                        debugger;
+                        if (select.paraia_multi_select('get_items').length == 0) { alert('Please select atleast one tag'); return false; }
+                        jQuery("#tagIds").val(select.paraia_multi_select('get_items'))
+                        return true;
                     });
                 },
             });
         });
     </script>
 }
-
